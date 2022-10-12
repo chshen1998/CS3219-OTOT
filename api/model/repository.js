@@ -1,7 +1,6 @@
 import 'dotenv/config'
 
 import ModuleModel from './module-model.js'
-import UserModel from './user-model.js'
 
 //Set up mongoose connection
 import mongoose from 'mongoose';
@@ -31,12 +30,4 @@ export async function deleteModule(moduleCode) {
 
 export async function updateModule(moduleCode, moduleTitle) {
     return ModuleModel.findOneAndUpdate({code:moduleCode}, {title:moduleTitle})
-}
-
-export async function createUser(name, hashed_pw) {
-    return new UserModel({username:name, hashed_password:hashed_pw})
-}
-
-export async function findUser(name) {
-    return UserModel.findOne({username:name})
 }
