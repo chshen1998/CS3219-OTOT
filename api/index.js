@@ -24,20 +24,12 @@ app.delete("/logout", (req, res) => handleLogout(req, res))
 
 app.post("/token", (req, res) => refreshAccessToken(req, res))
 
-app.get("/module", (req, res) => getModules(req, res));
+app.get("/module", [authenticateToken, checkCache], (req, res) => getModules(req, res));
 
-app.post("/module", (req, res) => createModule(req, res))
+app.post("/module", [authenticateToken, authorizeAdmin], (req, res) => createModule(req, res))
 
-app.delete("/module/:moduleCode", (req, res) => deleteModule(req, res))
+app.delete("/module/:moduleCode", [authenticateToken, authorizeAdmin], (req, res) => deleteModule(req, res))
 
-app.put("/module", (req, res) => updateModule(req ,res))
-
-//app.get("/module", [authenticateToken, checkCache], (req, res) => getModules(req, res));
-
-//app.post("/module", [authenticateToken, authorizeAdmin], (req, res) => createModule(req, res))
-
-//app.delete("/module/:moduleCode", [authenticateToken, authorizeAdmin], (req, res) => deleteModule(req, res))
-
-//app.put("/module", [authenticateToken, authorizeAdmin], (req, res) => updateModule(req ,res))
+app.put("/module", [authenticateToken, authorizeAdmin], (req, res) => updateModule(req ,res))
 
 app.listen(8000);

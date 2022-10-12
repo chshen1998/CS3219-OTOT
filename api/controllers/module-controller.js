@@ -1,10 +1,10 @@
 import { ormGetModules, ormCreateModule, ormFindModule, ormDeleteModule, ormUpdateModule } from "../model/module-orm.js";
-// import { saveToCache, removeFromCache } from "../model/redis.js";
+import { saveToCache, removeFromCache } from "../model/redis.js";
 
 export async function getModules(req, res) {
     console.log("get from database")
     const modules = await ormGetModules()
-    // await saveToCache("modules", modules)
+    await saveToCache("modules", modules)
     res.status(200).send(modules) 
 }
 
@@ -28,7 +28,7 @@ export async function createModule(req, res) {
     }
 
     await ormCreateModule(moduleCode, moduleTitle)
-    // await removeFromCache("modules")
+    await removeFromCache("modules")
     res.status(200).send("Module created")
 }
 
@@ -46,7 +46,7 @@ export async function deleteModule(req, res) {
     }
 
     ormDeleteModule(moduleCode)
-    // await removeFromCache("modules")
+    await removeFromCache("modules")
     res.status(200).send("Module deleted")
 }
 
@@ -70,7 +70,7 @@ export async function updateModule(req, res) {
     }
 
     await ormUpdateModule(moduleCode, moduleTitle)
-    // await removeFromCache("modules")
+    await removeFromCache("modules")
     res.status(200).send("Module updated")
 }
 
