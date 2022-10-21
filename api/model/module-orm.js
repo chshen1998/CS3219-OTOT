@@ -38,7 +38,7 @@ export async function ormDeleteModule(moduleCode) {
 
 export async function ormUpdateModule(moduleCode, moduleTitle) {
     try {
-        await updateModule(moduleCode, moduleTitle)
+        return await updateModule(moduleCode, moduleTitle)
     } catch (err) {
         console.log(err)
     }

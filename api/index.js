@@ -22,3 +22,5 @@ app.delete("/module/:moduleCode", (req, res) => deleteModule(req, res))
 app.put("/module", (req, res) => updateModule(req ,res))
 
 app.listen(8000);
+
+export default app

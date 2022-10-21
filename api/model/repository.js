@@ -29,5 +29,5 @@ export async function deleteModule(moduleCode) {
 }
 
 export async function updateModule(moduleCode, moduleTitle) {
-    return ModuleModel.findOneAndUpdate({code:moduleCode}, {title:moduleTitle})
+    return ModuleModel.findOneAndUpdate({code:moduleCode}, {title:moduleTitle}, {new:true})
 }
