@@ -19,6 +19,9 @@
     "url": "https://github.com/chshen1998/CS3219-OTOT-B/issues"
   },
   "homepage": "https://github.com/chshen1998/CS3219-OTOT-B#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
