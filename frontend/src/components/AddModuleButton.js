@@ -17,6 +17,8 @@ const AddModuleButton = ({callFunc}) => {
 
     const handleOpen = () => {
         setOpen(true)
+        setTitle("")
+        setCode("")
     }
 
     const handleClose = () => {

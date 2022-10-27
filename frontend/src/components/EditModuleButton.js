@@ -19,6 +19,7 @@ const EditModuleButton = ({code, callFunc}) => {
 
     const handleOpen = () => {
         setOpen(true)
+        setTitle("")
     }
 
     const handleClose = () => {
